@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+      - name: tag1 task
+        copy:
+           content: "hello world"
+           dest: /tmp/tag1
+        tags: [ never , tag1 ]
+  
+      - name: tag2 task
+        copy:
+           content: "hello world 2"
+           dest: /tmp/tag2
+        tags: [ never , tag2 ]
+
